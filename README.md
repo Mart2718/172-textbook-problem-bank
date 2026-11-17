@@ -23,7 +23,7 @@ The **outcome code** (FN1, LF2, PR1, …) is the key tag on every problem. That'
 | Folder | What's in it | Status |
 |---|---|---|
 | [`blueprints/`](blueprints/) | Per chapter: section → outcome → assessment map, plus the item types each outcome is assessed with | Ch 1 done |
-| [`SCHEMA.md`](SCHEMA.md) | The format every problem follows | Draft, for review |
+| [`SCHEMA.md`](SCHEMA.md) | The format every problem follows, plus decisions made | Agreed |
 | [`bank/`](bank/) | One YAML file per outcome, grouped by chapter | Not started |
 | [`generators/`](generators/) | Python templates; answers **computed** (SymPy), never typed by hand | Not started |
 | [`figures/`](figures/) | Generated graphs (SVG) with alt text | Not started |
