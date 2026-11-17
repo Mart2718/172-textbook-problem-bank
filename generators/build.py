@@ -24,40 +24,51 @@ TIERS = [
     ("bridge", "Looking Ahead to Calculus", "An idea from this section that grows into calculus."),
     ("slip", "Spot the Slip", "Find the error, fix it, and explain your thinking."),
 ]
-H3 = "color: #1b4f5c; border-bottom: 2px solid #1b4f5c; padding-bottom: 4px; margin-top: 28px;"
-NOTE = "color: #444; font-style: italic; margin-top: 0;"
+# Markup follows Dr. Romero's LibreTexts exercise template (box-exercise sections,
+# \PageIndex numbering, <dl> Answer blocks, lower-alpha <ol> for parts).
+ANSWER = "<dl>\n    <dt><strong class=\"emphasis bold\">Answer</strong></dt>\n    <dd>\n    {body}\n    </dd>\n</dl>"
+SOLUTION = "<dl>\n    <dt><strong class=\"emphasis bold\">Solution</strong></dt>\n    <dd>\n    {body}\n    </dd>\n</dl>"
 
 
 def render_problem(n, prob, out, review=False):
-    html = []
-    tag = ""
+    html = ['<section class="box-exercise">',
+            f'<h5 class="box-legend"><span class="lt-icon-default">Exercise \\(\\PageIndex{{{n}}}\\)</span></h5>', ""]
     if review:
         it = prob["item_type"]
         it = ", ".join(it) if isinstance(it, list) else it
-        tag = (f" <span style='font-size: 0.85em; color: #555;'>[{prob['id']} · {it} · "
-               f"{prob['template']} · seed {prob['seed']} · {prob['status']}]</span>")
-    if review and prob["status"] == "proposed":
-        html.append("<div style='border: 2px dashed #b5651d; padding: 8px 12px; margin: 10px 0;'>"
-                    f"<p style='margin: 0 0 6px 0; color: #8a4513;'><strong>PROPOSED: needs your approval.</strong> "
-                    f"Calculus idea: {prob.get('bridge_note', '')}</p>")
-    html.append(f"<p><strong>{n}.</strong> {out['stem']}{tag}</p>")
+        html.append(f"<p style=\"font-size: 0.85em; color: #555;\">[{prob['id']} · {it} · "
+                    f"{prob['template']} · seed {prob['seed']} · {prob['status']}]</p>")
+        if prob["status"] == "proposed":
+            html.append("<p style=\"border: 2px dashed #b5651d; padding: 6px 10px; color: #8a4513;\">"
+                        f"<strong>PROPOSED: needs your approval.</strong> Calculus idea: {prob.get('bridge_note', '')}</p>")
+    html.append(f"<p>{out['stem']}</p>")
     if out.get("figure"):
         f = out["figure"]
-        src = f["url"] if not review else "../../figures/" + f["file"]
-        html.append(f"<p><img src='{src}' alt='{f['alt']}' style='max-width: 380px; width: 100%;' /></p>")
+        html.append(f"<p><img alt=\"{f['alt']}\" src=\"{f['url']}\" style=\"max-width: 380px; width: 100%;\" /></p>")
     parts = out["parts"]
-    letters = "abcdefgh"
     if len(parts) == 1:
         html.append(f"<p>{parts[0][0]}</p>")
+        ans = f"<p>{parts[0][1]}</p>"
     else:
-        html.append("<ol type='a'>" + "".join(f"<li>{p}</li>" for p, _ in parts) + "</ol>")
-    ans = parts[0][1] if len(parts) == 1 else "<br/>".join(f"({letters[i]}) {an}" for i, (_, an) in enumerate(parts))
-    html.append(f"<dl><dt>Answer</dt><dd>{ans}</dd></dl>")
+        html.append('<ol start="1" style="list-style-type: lower-alpha;">\n'
+                    + "\n".join(f"    <li>{p}</li>" for p, _ in parts) + "\n</ol>")
+        ans = "\n    ".join(f"<p>{'abcdefgh'[i]}) {an}</p>" for i, (_, an) in enumerate(parts))
+    html.append("")
+    html.append(ANSWER.format(body=ans))
     if prob.get("solution"):  # reserved: worked solutions appear only when filled in
-        html.append(f"<dl><dt>Solution</dt><dd>{prob['solution']}</dd></dl>")
-    if review and prob["status"] == "proposed":
-        html.append("</div>")
+        html.append(SOLUTION.format(body=prob["solution"]))
+    html.append("</section>")
     return "\n".join(html)
+
+
+def header(bank):
+    return (f"<h4><strong>Student Learning Objective</strong></h4>\n\n"
+            f"<p><strong>{bank['outcome']}: {bank['objective']}</strong></p>\n\n"
+            "<p>Problems are grouped four ways. <strong>Practice (CheckIt-style)</strong> matches CheckIt. "
+            "<strong>Quiz &amp; Exam Practice</strong> matches the kinds of questions on quizzes and exams. "
+            "<strong>Looking Ahead to Calculus</strong> shows where an idea is headed. <strong>Spot the Slip</strong> "
+            "asks you to find and fix an error. Try each problem first, then open <strong>Answer</strong> to check. "
+            f"For unlimited practice with new numbers, use <a href=\"{bank['checkit']}\">CheckIt {bank['outcome']}</a>.</p>")
 
 
 def build(chapter, outcome):
@@ -72,21 +83,17 @@ def build(chapter, outcome):
         outputs[prob["id"]] = fn(rng_for(prob["seed"]), **args)
 
     def page(review):
-        title = f"{bank['section']} {bank['title']} ({bank['outcome']})"
-        body = [f"<h2>Problem Set: {title}</h2>",
-                f"<p>Answers are hidden. Try each problem first, then click <strong>Answer</strong> to check. "
-                f"For more practice with new numbers every time, use "
-                f"<a href='{bank['checkit']}'>CheckIt {bank['outcome']}</a>.</p>"]
+        body = [header(bank)]
         n = 0
         for tier, label, desc in TIERS:
             probs = [p for p in bank["problems"] if p["tier"] == tier and (review or p["status"] != "proposed")]
             if not probs:
                 continue
-            body.append(f"<h3 style='{H3}'>{label}</h3><p style='{NOTE}'>{desc}</p>")
+            body.append(f"\n<h4>{label}</h4>\n\n<p><em>{desc}</em></p>\n")
             for p in probs:
                 n += 1
                 body.append(render_problem(n, p, outputs[p["id"]], review))
-        return "\n".join(body)
+        return "\n\n".join(body)
 
     stem = f"{chapter}-{bank['section']}-{outcome}"
     os.makedirs(os.path.join(ROOT, "build", "book"), exist_ok=True)
@@ -97,7 +104,7 @@ def build(chapter, outcome):
     wrap = ("<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><title>{t}</title>"
             "<meta name='viewport' content='width=device-width, initial-scale=1'>"
             "<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'></script>"
-            "</head><body style='max-width: 820px; margin: 24px auto; padding: 0 16px; font-family: Georgia, serif; line-height: 1.5;'>"
+            "<style>section.box-exercise{{border:1px solid #9bb;border-radius:6px;padding:4px 16px;margin:14px 0}}h5.box-legend{{background:#e8f1f2;margin:0 -16px 8px;padding:6px 16px}}</style></head><body style='max-width: 820px; margin: 24px auto; padding: 0 16px; font-family: Georgia, serif; line-height: 1.5;'>"
             "{b}</body></html>")
     open(os.path.join(ROOT, "build", "preview", stem + ".html"), "w").write(wrap.format(t=stem, b=book))
     open(os.path.join(ROOT, "build", "review", f"{chapter}-{outcome}-review.html"), "w").write(

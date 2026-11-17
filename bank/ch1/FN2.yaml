@@ -3,6 +3,7 @@ title: Function Notation
 chapter: 1
 section: "1.2"
 checkit: https://tbil.org/preview/precalculus/exercises/#/bank/FN2/
+objective: "Use and interpret function notation to evaluate a function for a given input value and find a corresponding input value given an output value."
 generator: fn2
 
 # Each problem names a template in generators/fn2.py. `seed` fixes the version
