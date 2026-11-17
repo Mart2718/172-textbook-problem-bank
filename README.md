@@ -13,9 +13,9 @@ The **outcome code** (FN1, LF2, PR1, …) is the key tag on every problem. That'
 
 | Tier | Source | Purpose |
 |---|---|---|
-| Floor | TBIL CheckIt | Match CheckIt wording and answer forms |
-| Assessment-shaped | Quiz and exam item types | Practice every move the assessments ask for, with new problems (never the real items) |
-| Bridge | FAQ and guided notes | Extensions, multiple representations, calculus connections |
+| Floor (students see "CheckIt Practice") | TBIL CheckIt | Match CheckIt wording and answer forms |
+| Assessment-shaped (students see "Putting It Together Practice") | Quiz and exam item types | Practice every move the assessments ask for, with new problems (never the real items) |
+| Bridge (students see "Looking Ahead to Calculus"; approval required) | FAQ and guided notes | Extensions, multiple representations, calculus connections |
 | Spot the Slip | Same pattern as the support pages | Find and fix an error; explain the reasoning |
 
 ## Where things are

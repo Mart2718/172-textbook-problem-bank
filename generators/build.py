@@ -19,10 +19,10 @@ sys.path.insert(0, HERE)
 from common import rng_for  # noqa: E402
 
 TIERS = [
-    ("floor", "Practice (CheckIt-style)", "Same kinds of questions, wording, and answer forms as CheckIt."),
-    ("assessment", "Quiz &amp; Exam Practice", "The kinds of questions you will see on quizzes and exams."),
-    ("bridge", "Looking Ahead to Calculus", "An idea from this section that grows into calculus."),
+    ("floor", "CheckIt Practice", "Same kinds of questions, wording, and answer forms as CheckIt."),
+    ("assessment", "Putting It Together Practice", "The same skills, combined into multi-part problems and new formats."),
     ("slip", "Spot the Slip", "Find the error, fix it, and explain your thinking."),
+    ("bridge", "Looking Ahead to Calculus", "An idea from this section that grows into calculus."),
 ]
 # Markup follows Dr. Romero's LibreTexts exercise template (box-exercise sections,
 # \PageIndex numbering, <dl> Answer blocks, lower-alpha <ol> for parts).
@@ -64,10 +64,10 @@ def render_problem(n, prob, out, review=False):
 def header(bank):
     return (f"<h4><strong>Student Learning Objective</strong></h4>\n\n"
             f"<p><strong>{bank['outcome']}: {bank['objective']}</strong></p>\n\n"
-            "<p>Problems are grouped four ways. <strong>Practice (CheckIt-style)</strong> matches CheckIt. "
-            "<strong>Quiz &amp; Exam Practice</strong> matches the kinds of questions on quizzes and exams. "
-            "<strong>Looking Ahead to Calculus</strong> shows where an idea is headed. <strong>Spot the Slip</strong> "
-            "asks you to find and fix an error. Try each problem first, then open <strong>Answer</strong> to check. "
+            "<p><strong>CheckIt Practice</strong> matches the CheckIt problems for this outcome. "
+            "<strong>Putting It Together Practice</strong> uses the same skills in multi-part problems and new formats. "
+            "<strong>Spot the Slip</strong> asks you to find and fix an error. <strong>Looking Ahead to Calculus</strong> "
+            "shows where an idea is headed. Try each problem first, then open <strong>Answer</strong> to check. "
             f"For unlimited practice with new numbers, use <a href=\"{bank['checkit']}\">CheckIt {bank['outcome']}</a>.</p>")
 
 
