@@ -40,6 +40,8 @@ The **outcome code** (FN1, LF2, PR1, …) is the key tag on every problem. That'
 
 ## Accessibility
 
+See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) for what every build guarantees and the audit log.
+
 WCAG 2.1 AA. Every figure ships with alt text. Math uses MathJax `\( … \)`. Tables use header cells. Graph conventions match CheckIt: angle sides are rays with arrowheads.
 
 ## License

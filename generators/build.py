@@ -41,10 +41,16 @@ def render_problem(n, prob, out, review=False):
         if prob["status"] == "proposed":
             html.append("<p style=\"border: 2px dashed #b5651d; padding: 6px 10px; color: #8a4513;\">"
                         f"<strong>PROPOSED: needs your approval.</strong> Calculus idea: {prob.get('bridge_note', '')}</p>")
-    html.append(f"<p>{out['stem']}</p>")
+    stem = out["stem"]
+    if "<div" in stem:  # block content (e.g., student work) can't sit inside <p> (WCAG 4.1.1)
+        i = stem.index("<div")
+        html.append(f"<p>{stem[:i]}</p>")
+        html.append(stem[i:])
+    else:
+        html.append(f"<p>{stem}</p>")
     if out.get("figure"):
         f = out["figure"]
-        html.append(f"<p><img alt=\"{f['alt']}\" src=\"{f['url']}\" style=\"max-width: 380px; width: 100%;\" /></p>")
+        html.append(f"<p><img alt=\"{f['alt']}\" src=\"{f['url']}\" style=\"max-width: 480px; width: 100%;\" /></p>")
     parts = out["parts"]
     if len(parts) == 1:
         html.append(f"<p>{parts[0][0]}</p>")

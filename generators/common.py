@@ -54,28 +54,28 @@ def plot_polyline(points, name, fname, chapter="ch1"):
     ys = [p[1] for p in points]
     xmin, xmax = min(xs) - 1, max(xs) + 1
     ymin, ymax = min(min(ys), 0) - 1, max(max(ys), 0) + 1
-    w = (xmax - xmin) * 0.42
-    hgt = (ymax - ymin) * 0.42
-    fig, ax = plt.subplots(figsize=(w, hgt), dpi=150)
+    w = (xmax - xmin) * 0.5
+    hgt = (ymax - ymin) * 0.5
+    fig, ax = plt.subplots(figsize=(w, hgt), dpi=200)
     ax.set_xlim(xmin, xmax)
     ax.set_ylim(ymin, ymax)
     ax.set_aspect("equal")
     ax.set_xticks(range(int(xmin), int(xmax) + 1))
     ax.set_yticks(range(int(ymin), int(ymax) + 1))
-    ax.grid(True, color="#c9c9c9", linewidth=0.6)
+    ax.grid(True, color="#949494", linewidth=0.6)  # 3.0:1 on white (WCAG 1.4.11)
     for side in ("top", "right"):
         ax.spines[side].set_visible(False)
     ax.spines["left"].set_position("zero")
     ax.spines["bottom"].set_position("zero")
-    ax.tick_params(labelsize=7)
+    ax.tick_params(labelsize=10)
     # hide the 0 labels that collide at the origin
     ax.set_xticklabels([str(t) if t != 0 else "" for t in range(int(xmin), int(xmax) + 1)])
     ax.set_yticklabels([str(t) if t != 0 else "" for t in range(int(ymin), int(ymax) + 1)])
     ax.plot(xs, ys, color="#1f4fbf", linewidth=2.4, solid_capstyle="round")
     ax.plot([xs[0], xs[-1]], [ys[0], ys[-1]], "o", color="#1f4fbf", markersize=5)
-    ax.text(xmax - 0.2, 0.25, "x", fontsize=9, ha="right")
-    ax.text(0.25, ymax - 0.3, "y", fontsize=9, va="top")
-    ax.set_title(f"Graph of {name}", fontsize=9)
+    ax.text(xmax - 0.2, 0.25, "x", fontsize=12, ha="right")
+    ax.text(0.25, ymax - 0.3, "y", fontsize=12, va="top")
+    ax.set_title(f"Graph of {name}", fontsize=12)
     out = os.path.join(FIG_DIR, chapter)
     os.makedirs(out, exist_ok=True)
     fig.savefig(os.path.join(out, fname + ".png"), bbox_inches="tight")
@@ -83,5 +83,7 @@ def plot_polyline(points, name, fname, chapter="ch1"):
     plt.close(fig)
     pts = ", ".join(f"({p[0]}, {p[1]})" for p in points)
     alt = (f"Graph of {name}: connected line segments joining the points {pts}, "
-           f"with closed dots at both ends. The domain is [{xs[0]}, {xs[-1]}].")
+           f"with closed dots at both ends. The domain is [{xs[0]}, {xs[-1]}]. "
+           f"Grid lines are 1 unit apart; the x-axis is shown from {int(xmin)} to {int(xmax)} "
+           f"and the y-axis from {int(ymin)} to {int(ymax)}.")
     return {"file": f"{chapter}/{fname}.png", "url": f"{RAW_BASE}/{chapter}/{fname}.png", "alt": alt}
