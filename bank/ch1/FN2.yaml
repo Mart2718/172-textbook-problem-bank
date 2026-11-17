@@ -1,0 +1,116 @@
+outcome: FN2
+title: Function Notation
+chapter: 1
+section: "1.2"
+checkit: https://tbil.org/preview/precalculus/exercises/#/bank/FN2/
+generator: fn2
+
+# Each problem names a template in generators/fn2.py. `seed` fixes the version
+# printed in the book; the practice site will draw new seeds every time.
+problems:
+  # ---- Floor: matches CheckIt FN2 wording and answer forms ----
+  - id: FN2-F-01
+    tier: floor
+    item_type: FN2.a
+    kind: template
+    template: piecewise_eval
+    seed: 11
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN2-F-02
+    tier: floor
+    item_type: [FN2.b, FN2.c]
+    kind: template
+    template: graph_read_solve
+    seed: 21
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN2-F-03
+    tier: floor
+    item_type: FN2.a
+    kind: template
+    template: piecewise_eval
+    seed: 30
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN2-F-04
+    tier: floor
+    item_type: [FN2.b, FN2.c]
+    kind: template
+    template: graph_read_solve
+    seed: 44
+    args: {min_solutions: 2}
+    answer: generated
+    solution: null
+    status: draft
+
+  # ---- Assessment-shaped: the item types on Quiz 1 and Midterm 1, new problems ----
+  - id: FN2-A-01
+    tier: assessment
+    item_type: [FN2.d, FN2.e]
+    kind: template
+    template: eval_expression_and_solve
+    seed: 5
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN2-A-02
+    tier: assessment
+    item_type: FN2.a
+    kind: template
+    template: piecewise_with_domain
+    seed: 1
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN2-A-03
+    tier: assessment
+    item_type: [FN2.d, FN2.e]
+    kind: template
+    template: rational_eval_solve
+    seed: 13
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN2-A-04
+    tier: assessment
+    item_type: [FN2.b, FN2.c]
+    kind: template
+    template: graph_read_solve
+    seed: 63
+    args: {min_solutions: 3}
+    answer: generated
+    solution: null
+    status: draft
+
+  # ---- Bridge: needs Dr. Romero's approval before it appears anywhere ----
+  - id: FN2-B-01
+    tier: bridge
+    item_type: FN2.d
+    kind: template
+    template: difference_quotient_bridge
+    seed: 3
+    bridge_note: "Difference quotient → slope of the tangent line (the derivative)"
+    answer: generated
+    solution: null
+    status: proposed
+
+  # ---- Spot the Slip ----
+  - id: FN2-S-01
+    tier: slip
+    item_type: FN2.e
+    kind: template
+    template: slip_missing_root
+    seed: 2
+    answer: generated
+    solution: null
+    status: draft
