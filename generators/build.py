@@ -103,7 +103,7 @@ def build(chapter, outcome):
     open(os.path.join(ROOT, "build", "book", stem + ".html"), "w").write(book + "\n")
     wrap = ("<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><title>{t}</title>"
             "<meta name='viewport' content='width=device-width, initial-scale=1'>"
-            "<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'></script>"
+            "<script>window.MathJax={{tex:{{macros:{{PageIndex:['#1',1]}}}}}};</script><script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'></script>"
             "<style>section.box-exercise{{border:1px solid #9bb;border-radius:6px;padding:4px 16px;margin:14px 0}}h5.box-legend{{background:#e8f1f2;margin:0 -16px 8px;padding:6px 16px}}</style></head><body style='max-width: 820px; margin: 24px auto; padding: 0 16px; font-family: Georgia, serif; line-height: 1.5;'>"
             "{b}</body></html>")
     open(os.path.join(ROOT, "build", "preview", stem + ".html"), "w").write(wrap.format(t=stem, b=book))
