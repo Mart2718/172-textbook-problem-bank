@@ -18,6 +18,10 @@ The **outcome code** (FN1, LF2, PR1, …) is the key tag on every problem. That'
 | Bridge (students see "Looking Ahead to Calculus"; approval required) | FAQ and guided notes | Extensions, multiple representations, calculus connections |
 | Spot the Slip | Same pattern as the support pages | Find and fix an error; explain the reasoning |
 
+## What's next
+
+See [`ROADMAP.md`](ROADMAP.md): an instructor problem/test generator (Word / Google Doc export), the student practice site, Canvas quizzes and MyOpenMath, all built from this one bank.
+
 ## Where things are
 
 | Folder | What's in it | Status |
