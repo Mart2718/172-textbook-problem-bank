@@ -8,6 +8,7 @@ Writes
   build/preview/<chapter>-<section>-<outcome>.html   the book page wrapped with MathJax, to open in a browser
 """
 import importlib
+import re
 import os
 import sys
 
@@ -31,6 +32,22 @@ ANSWER = "<dl>\n    <dt><strong class=\"emphasis bold\">Answer</strong></dt>\n  
 SOLUTION = "<dl>\n    <dt><strong class=\"emphasis bold\">Solution</strong></dt>\n    <dd>\n    {body}\n    </dd>\n</dl>"
 
 
+def figures_of(out):
+    """A problem may carry one `figure` (FN2 style) or a list of `figures`."""
+    if out.get("figures"):
+        return out["figures"]
+    return [out["figure"]] if out.get("figure") else []
+
+
+def table_meta(f):
+    """Headers, caption and toggle label for a figure's data table."""
+    if f.get("table_headers"):
+        return f["table_headers"], f["table_caption"], f.get("table_toggle", "Table of points for the graph")
+    nm = f["name"]  # FN2 graph-reading tables
+    return ([r"\(x\)", f"\\({nm}(x)\\)"], f"Values of \\({nm}(x)\\) on the graph, every 0.5 unit",
+            "Table of values for the graph")
+
+
 def render_problem(n, prob, out, review=False):
     html = ['<section class="box-exercise">',
             f'<h5 class="box-legend"><span class="lt-icon-default">Exercise \\(\\PageIndex{{{n}}}\\)</span></h5>', ""]
@@ -49,17 +66,22 @@ def render_problem(n, prob, out, review=False):
         html.append(stem[i:])
     else:
         html.append(f"<p>{stem}</p>")
-    if out.get("figure"):
-        f = out["figure"]
+    figs = figures_of(out)
+    for f in figs:
+        if f.get("label"):
+            html.append(f"<p><strong>{f['label']}</strong></p>")
         html.append(f"<p><img alt=\"{f['alt']}\" src=\"{f['url']}\" style=\"max-width: 480px; width: 100%;\" /></p>")
         if f.get("table"):
-            rows = "\n".join(f"        <tr><td>{xv}</td><td>{yv}</td></tr>" for xv, yv in f["table"])
-            nm = f["name"]
+            heads, caption, toggle = table_meta(f)
+            toggle = f"{toggle} (Exercise {n})"
+            caption = f"Exercise {n}: {caption}"
+            rows = "\n".join("        <tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in f["table"])
+            th = "".join(f"<th scope=\"col\">{h}</th>" for h in heads)
             html.append(
-                "<dl>\n    <dt><strong class=\"emphasis bold\">Table of values for the graph</strong></dt>\n    <dd>\n"
+                f"<dl>\n    <dt><strong class=\"emphasis bold\">{toggle}</strong></dt>\n    <dd>\n"
                 f"    <table border=\"1\" cellpadding=\"8\">\n"
-                f"        <caption>Values of \\({nm}(x)\\) on the graph, every 0.5 unit</caption>\n"
-                f"        <thead><tr><th scope=\"col\">\\(x\\)</th><th scope=\"col\">\\({nm}(x)\\)</th></tr></thead>\n"
+                f"        <caption>{caption}</caption>\n"
+                f"        <thead><tr>{th}</tr></thead>\n"
                 f"        <tbody>\n{rows}\n        </tbody>\n    </table>\n    </dd>\n</dl>")
     parts = out["parts"]
     if len(parts) == 1:
@@ -74,7 +96,12 @@ def render_problem(n, prob, out, review=False):
     if prob.get("solution"):  # reserved: worked solutions appear only when filled in
         html.append(SOLUTION.format(body=prob["solution"]))
     html.append("</section>")
-    return "\n".join(html)
+    return math_safe("\n".join(html))
+
+
+def math_safe(s):
+    """Inside \\( \\) math, write < and > as \\lt and \\gt so no bare '<' reaches the HTML."""
+    return re.sub(r"\\\((.*?)\\\)", lambda mt: r"\(" + mt.group(1).replace("<", r"\lt ").replace(">", r"\gt ") + r"\)", s, flags=re.S)
 
 
 def header(bank):
@@ -94,7 +121,7 @@ def build(chapter, outcome):
     for prob in bank["problems"]:
         fn = gen.TEMPLATES[prob["template"]]
         args = dict(prob.get("args") or {})
-        if prob["template"] == "graph_read_solve":
+        if "fname_tag" in fn.__code__.co_varnames[:fn.__code__.co_argcount]:
             args["fname_tag"] = prob["id"]
         outputs[prob["id"]] = fn(rng_for(prob["seed"]), **args)
     check_lock(ROOT, chapter, bank, outputs)  # stop if audited content would change

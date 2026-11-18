@@ -21,8 +21,10 @@ FROZEN = ("audited", "published")
 
 
 def _text(out):
-    return json.dumps({"stem": out["stem"], "parts": out["parts"],
-                       "figure": (out.get("figure") or {}).get("alt")}, sort_keys=True)
+    d = {"stem": out["stem"], "parts": out["parts"], "figure": (out.get("figure") or {}).get("alt")}
+    if out.get("figures"):  # multi-figure problems (FN1+); FN2 hashes are unchanged
+        d["figures"] = [f["alt"] for f in out["figures"]]
+    return json.dumps(d, sort_keys=True)
 
 
 def check_lock(root, chapter, bank, outputs):
@@ -48,9 +50,19 @@ def check_lock(root, chapter, bank, outputs):
         print(f"locked: {', '.join(added)}")
 
 
+def _table_md(mt):
+    t = mt.group(0)
+    cap = re.search(r"<caption>(.*?)</caption>", t, re.S)
+    rows = [re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", r, re.S) for r in re.findall(r"<tr>(.*?)</tr>", t, re.S)]
+    md = (f"\n\n*{cap.group(1)}*\n\n" if cap else "\n\n") + "| " + " | ".join(rows[0]) + " |\n|" + "---|" * len(rows[0]) + "\n"
+    md += "\n".join("| " + " | ".join(r) + " |" for r in rows[1:]) + "\n\n"
+    return md
+
+
 def to_md(s):
     """HTML + MathJax \\( \\) -> Markdown with $ $ math."""
     s = s.replace(r"\(", "$").replace(r"\)", "$")
+    s = re.sub(r"<table.*?</table>", _table_md, s, flags=re.S)
     s = re.sub(r"<div[^>]*>", "\n\n> ", s)
     s = re.sub(r"<br\s*/?>", "  \n> ", s)
     s = re.sub(r"</?(em)>", "*", s)
@@ -80,14 +92,20 @@ def write_packet(root, chapter, bank, outputs):
     for n, p in enumerate(probs, 1):
         o = outputs[p["id"]]
         P.append(f"\n---\n\n## Problem {n}\n\n{to_md(o['stem'])}\n")
-        if o.get("figure"):
-            fname = f"problem-{n:02d}.png"
-            shutil.copy(os.path.join(root, "figures", o["figure"]["file"]), os.path.join(fig_dir, fname))
-            P.append(f"\n![Graph for Problem {n}](figures/{fname})\n\n*Alt text (what a screen-reader student hears):* {o['figure']['alt']}\n")
-            if o["figure"].get("table"):
-                nm = o["figure"]["name"]
-                P.append(f"\n*Table of values (collapsed toggle on the page):*\n\n| $x$ | ${nm}(x)$ |\n|---|---|\n"
-                         + "\n".join(f"| {a} | {b} |" for a, b in o["figure"]["table"]) + "\n")
+        figs = o.get("figures") or ([o["figure"]] if o.get("figure") else [])
+        for j, f in enumerate(figs):
+            fname = f"problem-{n:02d}.png" if len(figs) == 1 else f"problem-{n:02d}{'abcdefgh'[j]}.png"
+            shutil.copy(os.path.join(root, "figures", f["file"]), os.path.join(fig_dir, fname))
+            label = f.get("label") or f"Graph for Problem {n}"
+            P.append(f"\n**{label}**\n\n![{label}](figures/{fname})\n\n*Alt text (what a screen-reader student hears):* {f['alt']}\n")
+            if f.get("table"):
+                if f.get("table_headers"):
+                    heads, cap = f["table_headers"], f["table_caption"]
+                else:
+                    heads, cap = ["$x$", f"${f['name']}(x)$"], "Table of values"
+                heads = [to_md(h) for h in heads]
+                P.append(f"\n*{to_md(cap)} (collapsed toggle on the page):*\n\n| " + " | ".join(heads) + " |\n|" + "---|" * len(heads) + "\n"
+                         + "\n".join("| " + " | ".join(str(c) for c in r) + " |" for r in f["table"]) + "\n")
         letters = "abcdefgh"
         if len(o["parts"]) == 1:
             P.append(f"\n{to_md(o['parts'][0][0])}\n")

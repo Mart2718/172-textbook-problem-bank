@@ -22,6 +22,8 @@ c. Find $k(2)$.
 
 Let $g(x)$ be the function graphed below.
 
+**Graph for Problem 2**
+
 ![Graph for Problem 2](figures/problem-02.png)
 
 *Alt text (what a screen-reader student hears):* Graph of g: connected line segments joining the points (-7, 5), (-6, 6), (-3, 3), (-1, 5), (4, -5), (6, -7), with closed dots at both ends. The domain is [-7, 6]. Grid lines are 1 unit apart; the x-axis is shown from -8 to 7 and the y-axis from -8 to 7. A table of values for this graph is available below it.
@@ -79,6 +81,8 @@ c. Find $p(-4)$.
 ## Problem 4
 
 Let $k(x)$ be the function graphed below.
+
+**Graph for Problem 4**
 
 ![Graph for Problem 4](figures/problem-04.png)
 
@@ -153,6 +157,8 @@ c. Solve $p(x) = 3$.
 ## Problem 8
 
 Let $k(x)$ be the function graphed below.
+
+**Graph for Problem 8**
 
 ![Graph for Problem 8](figures/problem-08.png)
 

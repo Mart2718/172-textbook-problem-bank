@@ -1,0 +1,113 @@
+outcome: FN1
+title: Introduction to Functions
+chapter: 1
+section: "1.1"
+checkit: https://tbil.org/preview/precalculus/exercises/#/bank/FN1/
+objective: "Determine if a relation, equation, or graph defines a function using the definition as well as the vertical line test."
+generator: fn1
+
+problems:
+  # ---- CheckIt Practice: matches CheckIt FN1's three parts ----
+  - id: FN1-F-01
+    tier: floor
+    item_type: [FN1.a, FN1.c]
+    kind: template
+    template: relations_trio
+    seed: 4
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN1-F-02
+    tier: floor
+    item_type: FN1.e
+    kind: template
+    template: equations_pair
+    seed: 7
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN1-F-03
+    tier: floor
+    item_type: FN1.b
+    kind: template
+    template: graphs_trio
+    seed: 12
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN1-F-04
+    tier: floor
+    item_type: FN1.b
+    kind: template
+    template: graphs_trio
+    seed: 31
+    answer: generated
+    solution: null
+    status: draft
+
+  # ---- Putting It Together Practice ----
+  - id: FN1-A-01
+    tier: assessment
+    item_type: FN1.a
+    kind: template
+    template: repeated_outputs
+    seed: 3
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN1-A-02
+    tier: assessment
+    item_type: FN1.c
+    kind: template
+    template: mapping_domain_range
+    seed: 9
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN1-A-03
+    tier: assessment
+    item_type: FN1.d
+    kind: template
+    template: radical_domain
+    seed: 6
+    answer: generated
+    solution: null
+    status: draft
+
+  - id: FN1-A-04
+    tier: assessment
+    item_type: FN1.d
+    kind: template
+    template: radical_rational_domain
+    seed: 2
+    answer: generated
+    solution: null
+    status: draft
+
+  # ---- Spot the Slip ----
+  - id: FN1-S-01
+    tier: slip
+    item_type: FN1.a
+    kind: template
+    template: slip_repeated_output
+    seed: 5
+    answer: generated
+    solution: null
+    status: draft
+
+  # ---- Looking Ahead to Calculus: needs Dr. Romero's approval ----
+  - id: FN1-B-01
+    tier: bridge
+    item_type: FN1.e
+    kind: template
+    template: circle_halves_bridge
+    seed: 1
+    bridge_note: "Calculus works with functions, so curves like circles are split into function pieces (used later for slopes of tangent lines and for areas)"
+    answer: generated
+    solution: null
+    status: proposed

@@ -34,6 +34,7 @@ Each item type gets an ID (e.g., `FN2.c`). Problems in `bank/` are tagged with t
 | FN1.b | Function or not from a graph (vertical line test); explain | Q1 1.1.1b, Mid 1A |
 | FN1.c | Function or not from a mapping diagram; explain | Mid 1A |
 | FN1.d | Domain of a radical function in interval notation | Mid 1B |
+| FN1.e | Function or not from an equation (y to an odd vs. even power) | CheckIt FN1 part 2 (not on Q1/Mid; added for the problem set) |
 
 ### FN2 · Function Notation (1.2)
 | ID | Item type | Seen in |
