@@ -23,11 +23,13 @@ The **outcome code** (FN1, LF2, PR1, …) is the key tag on every problem. That'
 | Folder | What's in it | Status |
 |---|---|---|
 | [`blueprints/`](blueprints/) | Per chapter: section → outcome → assessment map, plus the item types each outcome is assessed with | Ch 1 done |
+| [`CONVENTIONS.md`](CONVENTIONS.md) | Answer forms and vocabulary (house style) | Draft, needs approval |
+| [`AUDIT-PROMPT.md`](AUDIT-PROMPT.md) · [`AUDIT-LOG.md`](AUDIT-LOG.md) | Math audit instructions (blind solve, then compare) and results | In use |
 | [`SCHEMA.md`](SCHEMA.md) | The format every problem follows, plus decisions made | Agreed |
 | [`bank/`](bank/) | One YAML file per outcome, grouped by chapter | FN2 pilot |
 | [`generators/`](generators/) | Python templates; answers **computed** (SymPy), never typed by hand. Build: `python3 generators/build.py ch1 FN2` | FN2 pilot |
 | [`figures/`](figures/) | Generated graphs (PNG + SVG) with alt text | FN2 pilot |
-| [`build/`](build/) | `book/` paste-ready LibreTexts HTML · `preview/` the same page with MathJax, to open in a browser · `review/` with tags, seeds and proposed bridge problems | FN2 pilot |
+| [`build/`](build/) | `book/` paste-ready LibreTexts HTML · `preview/` the same page with MathJax, to open in a browser · `review/` with tags, seeds and proposed bridge problems · `audit/` Markdown packet for reviewers | FN2 pilot |
 | [`site/`](site/) | Interleaved practice site (Netlify) | Later |
 
 ## Workflow

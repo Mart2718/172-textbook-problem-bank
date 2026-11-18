@@ -100,10 +100,10 @@ problems:
     kind: template
     template: difference_quotient_bridge
     seed: 3
-    bridge_note: "Difference quotient → slope of the tangent line (the derivative)"
+    bridge_note: "Difference quotient = secant slope; as h → 0 it approaches the tangent slope (the derivative)"
     answer: generated
     solution: null
-    status: proposed
+    status: draft          # approved by Dr. Romero, Nov 17 2026
 
   # ---- Spot the Slip ----
   - id: FN2-S-01

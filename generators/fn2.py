@@ -7,7 +7,10 @@ from common import x, a, h, m, num, plot_polyline
 
 
 def _fname(rng, avoid=()):
-    return rng.choice([n for n in ["f", "g", "h", "k"] if n not in avoid])
+    # "h" is reserved for the increment in f(x+h) (CONVENTIONS.md), so the draw keeps
+    # its four slots (seeds stay stable) but the name h is shown as p.
+    n = rng.choice([n for n in ["f", "g", "h", "k"] if n not in avoid])
+    return "p" if n == "h" else n
 
 
 # --------------------------------------------------------------------------
@@ -169,7 +172,7 @@ def piecewise_with_domain(rng):
             ans = m(f"{F}({v}) = " + sp.latex(val))
         elif cut <= v <= right_end:
             val = q.subs(x, v)
-            ans = m(f"{F}({v}) = " + sp.latex(val)) + f" (the break point {m(cut)} belongs to the second piece)"
+            ans = m(f"{F}({v}) = " + sp.latex(val)) + f" (the boundary value {m(cut)} belongs to the second piece)"
         else:
             ans = (f"{m(f'{F}({v})')} is undefined: {m(v)} is not in the domain "
                    f"{m(f'[{-p}, {right_end}]')}, so neither piece applies.")
@@ -221,11 +224,12 @@ def difference_quotient_bridge(rng):
         (f"Find and simplify {m(dq_tex)} for {m(r'h \ne 0')}.", m(sp.latex(sp.expand(dq)))),
         (f"Evaluate your answer for {m('h = 0.1')}, {m('h = 0.01')}, and {m('h = 0.001')}. What number do the values approach as {m('h')} gets closer to {m(0)}?",
          f"{tbl}. The values approach {m(limit)}."),
-        (f"This expression is the slope of a line through two points on the graph of {m(F)}. Which two points?",
-         f"{m(f'({c0}, {F}({c0}))')} and {m(f'({c0}+h, {F}({c0}+h))')}. As {m('h')} shrinks, the second point slides toward the first."),
+        (f"The expression in part (a) is the slope of the <em>secant line</em> through two points on the graph of {m(F)}. Which two points?",
+         f"{m(f'({c0}, {f.subs(x, c0)})')} and {m(f'({c0}+h, ' + sp.latex(sp.expand(f.subs(x, c0 + h))) + ')')}, that is, {m(f'({c0}, {F}({c0}))')} and {m(f'({c0}+h, {F}({c0}+h))')}. "
+         f"As {m('h')} shrinks, the second point slides toward the first, and the secant slopes approach the slope of the tangent line at {m(c0)}, which is {m(limit)}."),
     ]
     return {"stem": f"Let {m(f'{F}(x) = ' + sp.latex(f))}.", "parts": parts, "figure": None,
-            "bridge_note": "Difference quotient → slope of the tangent line (the derivative)"}
+            "bridge_note": "Difference quotient = secant slope; as h → 0 it approaches the tangent slope (the derivative)"}
 
 
 # --------------------------------------------------------------------------
@@ -247,7 +251,7 @@ def slip_missing_root(rng):
         ("Find the slip in the student's work and explain it in a sentence.",
          f"Going from {m(f'x^2 = {k*k}')} to {m(f'x = {k}')} misses a solution: both {m(k)} and {m(-k)} square to {m(k*k)}."),
         ("Give the correct answer and check it.",
-         m(f"x = -{k}") + " or " + m(f"x = {k}") + f". Check: {m(f'{F}(-{k}) = (-{k})^2 - {-c} = {target}')}."),
+         m(f"x = -{k}") + " or " + m(f"x = {k}") + f". Check: {m(f'{F}(-{k}) = (-{k})^2 - {-c} = {target}')} and {m(f'{F}({k}) = {k}^2 - {-c} = {target}')}."),
     ]
     return {"stem": f"A student was asked: <em>Let {m(f'{F}(x) = {fl}')}. Find every input {m('x')} for which {m(f'{F}(x) = {target}')}.</em>{work}",
             "parts": parts, "figure": None}

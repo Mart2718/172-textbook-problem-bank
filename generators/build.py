@@ -17,6 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 from common import rng_for  # noqa: E402
+from packet import check_lock, write_packet  # noqa: E402
 
 TIERS = [
     ("floor", "CheckIt Practice", "Same kinds of questions, wording, and answer forms as CheckIt."),
@@ -87,6 +88,7 @@ def build(chapter, outcome):
         if prob["template"] == "graph_read_solve":
             args["fname_tag"] = prob["id"]
         outputs[prob["id"]] = fn(rng_for(prob["seed"]), **args)
+    check_lock(ROOT, chapter, bank, outputs)  # stop if audited content would change
 
     def page(review):
         body = [header(bank)]
@@ -115,6 +117,8 @@ def build(chapter, outcome):
     open(os.path.join(ROOT, "build", "preview", stem + ".html"), "w").write(wrap.format(t=stem, b=book))
     open(os.path.join(ROOT, "build", "review", f"{chapter}-{outcome}-review.html"), "w").write(
         wrap.format(t=f"{outcome} review", b=page(review=True)))
+    pk = write_packet(ROOT, chapter, bank, outputs)
+    print(f"audit packet: {os.path.relpath(pk, ROOT)}")
     print(f"built {stem}: {sum(p['status'] != 'proposed' for p in bank['problems'])} problems in book, "
           f"{sum(p['status'] == 'proposed' for p in bank['problems'])} proposed")
     return outputs

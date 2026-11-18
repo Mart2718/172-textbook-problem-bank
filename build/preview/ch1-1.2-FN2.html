@@ -52,19 +52,19 @@
 <section class="box-exercise">
 <h5 class="box-legend"><span class="lt-icon-default">Exercise \(\PageIndex{3}\)</span></h5>
 
-<p>Let \(h(x) = \begin{cases} 2 x^{2} + x & -5 < x \le 2 \\ \frac{x - 3}{2 x^{2} + 1} & 2 < x < 5 \end{cases}\).</p>
+<p>Let \(p(x) = \begin{cases} 2 x^{2} + x & -5 < x \le 2 \\ \frac{x - 3}{2 x^{2} + 1} & 2 < x < 5 \end{cases}\).</p>
 <ol start="1" style="list-style-type: lower-alpha;">
-    <li>Find \(h(2)\).</li>
-    <li>Find \(h(3)\).</li>
-    <li>Find \(h(-4)\).</li>
+    <li>Find \(p(2)\).</li>
+    <li>Find \(p(3)\).</li>
+    <li>Find \(p(-4)\).</li>
 </ol>
 
 <dl>
     <dt><strong class="emphasis bold">Answer</strong></dt>
     <dd>
-    <p>a) \(h(2) = 10\)</p>
-    <p>b) \(h(3) = 0\)</p>
-    <p>c) \(h(-4) = 28\)</p>
+    <p>a) \(p(2) = 10\)</p>
+    <p>b) \(p(3) = 0\)</p>
+    <p>c) \(p(-4) = 28\)</p>
     </dd>
 </dl>
 </section>
@@ -97,18 +97,18 @@
 <section class="box-exercise">
 <h5 class="box-legend"><span class="lt-icon-default">Exercise \(\PageIndex{5}\)</span></h5>
 
-<p>Let \(h(x) = x^{2} - 7\).</p>
+<p>Let \(p(x) = x^{2} - 7\).</p>
 <ol start="1" style="list-style-type: lower-alpha;">
-    <li>Find \(h(4)\).</li>
-    <li>Find and simplify \(h(a+1)\).</li>
-    <li>Find every input \(x\) for which \(h(x) = -3\).</li>
+    <li>Find \(p(4)\).</li>
+    <li>Find and simplify \(p(a+1)\).</li>
+    <li>Find every input \(x\) for which \(p(x) = -3\).</li>
 </ol>
 
 <dl>
     <dt><strong class="emphasis bold">Answer</strong></dt>
     <dd>
-    <p>a) \(h(4) = 9\)</p>
-    <p>b) \(h(a+1) = a^{2} + 2 a - 6\)</p>
+    <p>a) \(p(4) = 9\)</p>
+    <p>b) \(p(a+1) = a^{2} + 2 a - 6\)</p>
     <p>c) \(x = -2\) or \(x = 2\)</p>
     </dd>
 </dl>
@@ -128,7 +128,7 @@
     <dt><strong class="emphasis bold">Answer</strong></dt>
     <dd>
     <p>a) \(g(-2) = 2\)</p>
-    <p>b) \(g(0) = -1\) (the break point \(0\) belongs to the second piece)</p>
+    <p>b) \(g(0) = -1\) (the boundary value \(0\) belongs to the second piece)</p>
     <p>c) \(g(6)\) is undefined: \(6\) is not in the domain \([-6, 4]\), so neither piece applies.</p>
     </dd>
 </dl>
@@ -137,17 +137,17 @@
 <section class="box-exercise">
 <h5 class="box-legend"><span class="lt-icon-default">Exercise \(\PageIndex{7}\)</span></h5>
 
-<p>Let \(h(x) = \frac{4 x - 1}{x + 1}\).</p>
+<p>Let \(p(x) = \frac{4 x - 1}{x + 1}\).</p>
 <ol start="1" style="list-style-type: lower-alpha;">
-    <li>Find \(h(0)\).</li>
-    <li>Explain why \(h(-1)\) is undefined.</li>
-    <li>Solve \(h(x) = 3\).</li>
+    <li>Find \(p(0)\).</li>
+    <li>Explain why \(p(-1)\) is undefined.</li>
+    <li>Solve \(p(x) = 3\).</li>
 </ol>
 
 <dl>
     <dt><strong class="emphasis bold">Answer</strong></dt>
     <dd>
-    <p>a) \(h(0) = -1\)</p>
+    <p>a) \(p(0) = -1\)</p>
     <p>b) Substituting \(-1\) makes the denominator \(x + 1\) equal to \(0\), and division by zero is undefined.</p>
     <p>c) \(x = 4\)</p>
     </dd>
@@ -193,7 +193,33 @@
     <dt><strong class="emphasis bold">Answer</strong></dt>
     <dd>
     <p>a) Going from \(x^2 = 9\) to \(x = 3\) misses a solution: both \(3\) and \(-3\) square to \(9\).</p>
-    <p>b) \(x = -3\) or \(x = 3\). Check: \(f(-3) = (-3)^2 - 3 = 6\).</p>
+    <p>b) \(x = -3\) or \(x = 3\). Check: \(f(-3) = (-3)^2 - 3 = 6\) and \(f(3) = 3^2 - 3 = 6\).</p>
+    </dd>
+</dl>
+</section>
+
+
+<h4>Looking Ahead to Calculus</h4>
+
+<p><em>An idea from this section that grows into calculus.</em></p>
+
+
+<section class="box-exercise">
+<h5 class="box-legend"><span class="lt-icon-default">Exercise \(\PageIndex{10}\)</span></h5>
+
+<p>Let \(g(x) = x^{2} + 2 x\).</p>
+<ol start="1" style="list-style-type: lower-alpha;">
+    <li>Find and simplify \(\frac{g(3+h) - g(3)}{h}\) for \(h \ne 0\).</li>
+    <li>Evaluate your answer for \(h = 0.1\), \(h = 0.01\), and \(h = 0.001\). What number do the values approach as \(h\) gets closer to \(0\)?</li>
+    <li>The expression in part (a) is the slope of the <em>secant line</em> through two points on the graph of \(g\). Which two points?</li>
+</ol>
+
+<dl>
+    <dt><strong class="emphasis bold">Answer</strong></dt>
+    <dd>
+    <p>a) \(h + 8\)</p>
+    <p>b) \(h = 0.1\): \(8.1\), \(h = 0.01\): \(8.01\), \(h = 0.001\): \(8.001\). The values approach \(8\).</p>
+    <p>c) \((3, 15)\) and \((3+h, h^{2} + 8 h + 15)\), that is, \((3, g(3))\) and \((3+h, g(3+h))\). As \(h\) shrinks, the second point slides toward the first, and the secant slopes approach the slope of the tangent line at \(3\), which is \(8\).</p>
     </dd>
 </dl>
 </section></body></html>
