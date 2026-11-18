@@ -18,7 +18,7 @@ problems:
     seed: 11
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN2-F-02
     tier: floor
@@ -28,7 +28,7 @@ problems:
     seed: 21
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN2-F-03
     tier: floor
@@ -38,7 +38,7 @@ problems:
     seed: 30
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN2-F-04
     tier: floor
@@ -49,7 +49,7 @@ problems:
     args: {min_solutions: 2}
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   # ---- Assessment-shaped: the item types on Quiz 1 and Midterm 1, new problems ----
   - id: FN2-A-01
@@ -60,7 +60,7 @@ problems:
     seed: 5
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN2-A-02
     tier: assessment
@@ -70,7 +70,7 @@ problems:
     seed: 1
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN2-A-03
     tier: assessment
@@ -80,7 +80,7 @@ problems:
     seed: 13
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN2-A-04
     tier: assessment
@@ -91,7 +91,7 @@ problems:
     args: {min_solutions: 3}
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   # ---- Bridge: needs Dr. Romero's approval before it appears anywhere ----
   - id: FN2-B-01
@@ -103,7 +103,7 @@ problems:
     bridge_note: "Difference quotient = secant slope; as h → 0 it approaches the tangent slope (the derivative)"
     answer: generated
     solution: null
-    status: draft          # approved by Dr. Romero, Nov 17 2026
+    status: audited        # bridge approved by Dr. Romero, Nov 17 2026
 
   # ---- Spot the Slip ----
   - id: FN2-S-01
@@ -114,4 +114,4 @@ problems:
     seed: 2
     answer: generated
     solution: null
-    status: draft
+    status: audited

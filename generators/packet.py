@@ -84,6 +84,10 @@ def write_packet(root, chapter, bank, outputs):
             fname = f"problem-{n:02d}.png"
             shutil.copy(os.path.join(root, "figures", o["figure"]["file"]), os.path.join(fig_dir, fname))
             P.append(f"\n![Graph for Problem {n}](figures/{fname})\n\n*Alt text (what a screen-reader student hears):* {o['figure']['alt']}\n")
+            if o["figure"].get("table"):
+                nm = o["figure"]["name"]
+                P.append(f"\n*Table of values (collapsed toggle on the page):*\n\n| $x$ | ${nm}(x)$ |\n|---|---|\n"
+                         + "\n".join(f"| {a} | {b} |" for a, b in o["figure"]["table"]) + "\n")
         letters = "abcdefgh"
         if len(o["parts"]) == 1:
             P.append(f"\n{to_md(o['parts'][0][0])}\n")

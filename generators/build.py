@@ -52,6 +52,15 @@ def render_problem(n, prob, out, review=False):
     if out.get("figure"):
         f = out["figure"]
         html.append(f"<p><img alt=\"{f['alt']}\" src=\"{f['url']}\" style=\"max-width: 480px; width: 100%;\" /></p>")
+        if f.get("table"):
+            rows = "\n".join(f"        <tr><td>{xv}</td><td>{yv}</td></tr>" for xv, yv in f["table"])
+            nm = f["name"]
+            html.append(
+                "<dl>\n    <dt><strong class=\"emphasis bold\">Table of values for the graph</strong></dt>\n    <dd>\n"
+                f"    <table border=\"1\" cellpadding=\"8\">\n"
+                f"        <caption>Values of \\({nm}(x)\\) on the graph, every 0.5 unit</caption>\n"
+                f"        <thead><tr><th scope=\"col\">\\(x\\)</th><th scope=\"col\">\\({nm}(x)\\)</th></tr></thead>\n"
+                f"        <tbody>\n{rows}\n        </tbody>\n    </table>\n    </dd>\n</dl>")
     parts = out["parts"]
     if len(parts) == 1:
         html.append(f"<p>{parts[0][0]}</p>")

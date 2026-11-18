@@ -1,0 +1,52 @@
+{
+  "FN2-A-01": {
+    "seed": 5,
+    "sha256": "9f2c8dfa25699c3bcb7442897aea5d8e81374ae15f63f5a1119e20046a65abd6",
+    "template": "eval_expression_and_solve"
+  },
+  "FN2-A-02": {
+    "seed": 1,
+    "sha256": "d00c082df6228fd9e82449615f0e00c5b80829e7b3c9a2f61a406a03e8109f20",
+    "template": "piecewise_with_domain"
+  },
+  "FN2-A-03": {
+    "seed": 13,
+    "sha256": "eb3c97ac71ecc1b570c91bbc8f58477d2d227fbd5fe23cd0ae568aaf80f517f6",
+    "template": "rational_eval_solve"
+  },
+  "FN2-A-04": {
+    "seed": 63,
+    "sha256": "95c4bf44f697061654220655287cf1c6b5c7b046f4f14f9bb7e4940169696816",
+    "template": "graph_read_solve"
+  },
+  "FN2-B-01": {
+    "seed": 3,
+    "sha256": "6c99e38ffc3806f8af4742c9c75ac3df3b73c909060a8e3549ae1103184ecbfd",
+    "template": "difference_quotient_bridge"
+  },
+  "FN2-F-01": {
+    "seed": 11,
+    "sha256": "7955b053c86b896760615d18cf4a57c446e72ce87358348d660526d99ff39cc0",
+    "template": "piecewise_eval"
+  },
+  "FN2-F-02": {
+    "seed": 21,
+    "sha256": "104c76213eb72e026832b81f51632717f1fa845a4c5223b6e4f44609b8dd3f82",
+    "template": "graph_read_solve"
+  },
+  "FN2-F-03": {
+    "seed": 30,
+    "sha256": "932c6ebf0d87b2f2a054742e15d71599230748e352c78f1395e65414d4371bd4",
+    "template": "piecewise_eval"
+  },
+  "FN2-F-04": {
+    "seed": 44,
+    "sha256": "afb1395de88527a9feb5c55faec49cda169bc64b722e5fe1d009fb8c344eeeb9",
+    "template": "graph_read_solve"
+  },
+  "FN2-S-01": {
+    "seed": 2,
+    "sha256": "0e897320f651aceae16b808bd8e46006bbb8da48425f48111233fa72ee702b9f",
+    "template": "slip_missing_root"
+  }
+}

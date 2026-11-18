@@ -85,5 +85,17 @@ def plot_polyline(points, name, fname, chapter="ch1"):
     alt = (f"Graph of {name}: connected line segments joining the points {pts}, "
            f"with closed dots at both ends. The domain is [{xs[0]}, {xs[-1]}]. "
            f"Grid lines are 1 unit apart; the x-axis is shown from {int(xmin)} to {int(xmax)} "
-           f"and the y-axis from {int(ymin)} to {int(ymax)}.")
-    return {"file": f"{chapter}/{fname}.png", "url": f"{RAW_BASE}/{chapter}/{fname}.png", "alt": alt}
+           f"and the y-axis from {int(ymin)} to {int(ymax)}. "
+           f"A table of values for this graph is available below it.")
+    # Equal-access table: every half-unit x on the domain (WCAG 1.1.1 / FN2 audit).
+    # Values are exact because slopes are integers; templates keep answers on half-units.
+    table = []
+    t = Fraction(xs[0])
+    while t <= xs[-1]:
+        for (x0, y0), (x1, y1) in zip(points, points[1:]):
+            if x0 <= t <= x1:
+                table.append((t, Fraction(y0) + Fraction(y1 - y0, x1 - x0) * (t - x0)))
+                break
+        t += Fraction(1, 2)
+    return {"file": f"{chapter}/{fname}.png", "url": f"{RAW_BASE}/{chapter}/{fname}.png", "alt": alt,
+            "name": name, "table": [(num(a), num(b)) for a, b in table]}

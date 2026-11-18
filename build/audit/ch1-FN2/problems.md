@@ -24,7 +24,39 @@ Let $g(x)$ be the function graphed below.
 
 ![Graph for Problem 2](figures/problem-02.png)
 
-*Alt text (what a screen-reader student hears):* Graph of g: connected line segments joining the points (-7, 5), (-6, 6), (-3, 3), (-1, 5), (4, -5), (6, -7), with closed dots at both ends. The domain is [-7, 6]. Grid lines are 1 unit apart; the x-axis is shown from -8 to 7 and the y-axis from -8 to 7.
+*Alt text (what a screen-reader student hears):* Graph of g: connected line segments joining the points (-7, 5), (-6, 6), (-3, 3), (-1, 5), (4, -5), (6, -7), with closed dots at both ends. The domain is [-7, 6]. Grid lines are 1 unit apart; the x-axis is shown from -8 to 7 and the y-axis from -8 to 7. A table of values for this graph is available below it.
+
+*Table of values (collapsed toggle on the page):*
+
+| $x$ | $g(x)$ |
+|---|---|
+| -7 | 5 |
+| -6.5 | 5.5 |
+| -6 | 6 |
+| -5.5 | 5.5 |
+| -5 | 5 |
+| -4.5 | 4.5 |
+| -4 | 4 |
+| -3.5 | 3.5 |
+| -3 | 3 |
+| -2.5 | 3.5 |
+| -2 | 4 |
+| -1.5 | 4.5 |
+| -1 | 5 |
+| -0.5 | 4 |
+| 0 | 3 |
+| 0.5 | 2 |
+| 1 | 1 |
+| 1.5 | 0 |
+| 2 | -1 |
+| 2.5 | -2 |
+| 3 | -3 |
+| 3.5 | -4 |
+| 4 | -5 |
+| 4.5 | -5.5 |
+| 5 | -6 |
+| 5.5 | -6.5 |
+| 6 | -7 |
 
 a. Find $g(-5)$.
 
@@ -50,7 +82,31 @@ Let $k(x)$ be the function graphed below.
 
 ![Graph for Problem 4](figures/problem-04.png)
 
-*Alt text (what a screen-reader student hears):* Graph of k: connected line segments joining the points (-5, -4), (-4, -5), (-2, -1), (3, -6), (4, -4), with closed dots at both ends. The domain is [-5, 4]. Grid lines are 1 unit apart; the x-axis is shown from -6 to 5 and the y-axis from -7 to 1.
+*Alt text (what a screen-reader student hears):* Graph of k: connected line segments joining the points (-5, -4), (-4, -5), (-2, -1), (3, -6), (4, -4), with closed dots at both ends. The domain is [-5, 4]. Grid lines are 1 unit apart; the x-axis is shown from -6 to 5 and the y-axis from -7 to 1. A table of values for this graph is available below it.
+
+*Table of values (collapsed toggle on the page):*
+
+| $x$ | $k(x)$ |
+|---|---|
+| -5 | -4 |
+| -4.5 | -4.5 |
+| -4 | -5 |
+| -3.5 | -4 |
+| -3 | -3 |
+| -2.5 | -2 |
+| -2 | -1 |
+| -1.5 | -1.5 |
+| -1 | -2 |
+| -0.5 | -2.5 |
+| 0 | -3 |
+| 0.5 | -3.5 |
+| 1 | -4 |
+| 1.5 | -4.5 |
+| 2 | -5 |
+| 2.5 | -5.5 |
+| 3 | -6 |
+| 3.5 | -5 |
+| 4 | -4 |
 
 a. Find $k(0)$.
 
@@ -100,7 +156,37 @@ Let $k(x)$ be the function graphed below.
 
 ![Graph for Problem 8](figures/problem-08.png)
 
-*Alt text (what a screen-reader student hears):* Graph of k: connected line segments joining the points (-6, -3), (-3, -6), (1, -2), (3, -4), (5, -2), (6, -4), with closed dots at both ends. The domain is [-6, 6]. Grid lines are 1 unit apart; the x-axis is shown from -7 to 7 and the y-axis from -7 to 1.
+*Alt text (what a screen-reader student hears):* Graph of k: connected line segments joining the points (-6, -3), (-3, -6), (1, -2), (3, -4), (5, -2), (6, -4), with closed dots at both ends. The domain is [-6, 6]. Grid lines are 1 unit apart; the x-axis is shown from -7 to 7 and the y-axis from -7 to 1. A table of values for this graph is available below it.
+
+*Table of values (collapsed toggle on the page):*
+
+| $x$ | $k(x)$ |
+|---|---|
+| -6 | -3 |
+| -5.5 | -3.5 |
+| -5 | -4 |
+| -4.5 | -4.5 |
+| -4 | -5 |
+| -3.5 | -5.5 |
+| -3 | -6 |
+| -2.5 | -5.5 |
+| -2 | -5 |
+| -1.5 | -4.5 |
+| -1 | -4 |
+| -0.5 | -3.5 |
+| 0 | -3 |
+| 0.5 | -2.5 |
+| 1 | -2 |
+| 1.5 | -2.5 |
+| 2 | -3 |
+| 2.5 | -3.5 |
+| 3 | -4 |
+| 3.5 | -3.5 |
+| 4 | -3 |
+| 4.5 | -2.5 |
+| 5 | -2 |
+| 5.5 | -3 |
+| 6 | -4 |
 
 a. Find $k(-2)$.
 
