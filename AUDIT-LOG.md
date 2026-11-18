@@ -5,7 +5,7 @@ A problem is set to `audited` (and locked) only after **both** reviewers pass it
 
 | Outcome | In-house agent | ChatGPT | Status |
 |---|---|---|---|
-| FN1 | ✅ Nov 17, 2026: 8 ✅ / 2 ⚠️ / 0 ❌, ⚠️ fixed | Pending | Draft (bridge proposed) |
+| FN1 | ✅ Nov 17, 2026: 8 ✅ / 2 ⚠️ / 0 ❌, ⚠️ fixed | ✅ Nov 17, 2026: 6 ✅ / 4 ⚠️ (wording) / 0 ❌, ⚠️ fixed | **Audited · locked** |
 | FN2 | ✅ Nov 17, 2026: 9 ✅ / 1 ⚠️ / 0 ❌, ⚠️ fixed | ✅ Nov 17, 2026: 7 ✅ / 3 ⚠️ (access) / 0 ❌, ⚠️ fixed | **Audited · locked** |
 
 ## FN2: in-house audit (Nov 17, 2026)
@@ -42,3 +42,16 @@ A problem is set to `audited` (and locked) only after **both** reviewers pass it
 **Noted, no change:**
 - **Domain (Problems 7–8):** the reviewer noted it goes beyond CheckIt FN1 (the FAQ also calls it an extension). It stays because Midterm 1B assesses it under FN1.
 - **Problem 6c** (an output with no arrow is not in the range) is an intentional trap, and the key says so.
+
+## FN1: ChatGPT audit (Nov 17, 2026)
+
+**Result:** all 10 answer keys mathematically correct, and all 8 images match their descriptions. 6 ✅ / 4 ⚠️ / 0 ❌.
+
+**Fixed (wording; no answers changed):**
+- **Problems 3–4:** the vertical line test now uses **"intersects"**, so isolated points and closed endpoints count. Table labels now say **"Selected points on Graph …"** for continuous graphs (a sample can show a failure but not prove a pass) and **"All plotted points on Graph …"** for point graphs.
+- **Problem 6:** the right oval of a mapping is labeled **"Target values"**, and the key says the unused value "has no incoming arrow, so it is not an output."
+- **Problem 10:** the calculus note now reads "Writing the circle as upper and lower functions lets us use single-variable integration to find the area between them."
+- **Domain (Problems 7–8):** kept, at Dr. Romero's direction. The page now says "Also practiced in this section: finding the domain of a function with a square root (assessed under FN1 on Midterm 1)."
+- **CONVENTIONS.md:** added set notation for finite domains and ranges, "intersects," "target values," and the selected/all-points table labels.
+
+**Bridge (FN1-B-01):** approved by Dr. Romero. **Status:** all 10 set to `audited` and locked in `bank/ch1/FN1.lock.json`.

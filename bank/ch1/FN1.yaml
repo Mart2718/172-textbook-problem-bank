@@ -5,6 +5,7 @@ section: "1.1"
 checkit: https://tbil.org/preview/precalculus/exercises/#/bank/FN1/
 objective: "Determine if a relation, equation, or graph defines a function using the definition as well as the vertical line test."
 generator: fn1
+also_practiced: "Finding the domain of a function with a square root (assessed under FN1 on Midterm 1)."
 
 problems:
   # ---- CheckIt Practice: matches CheckIt FN1's three parts ----
@@ -16,7 +17,7 @@ problems:
     seed: 4
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN1-F-02
     tier: floor
@@ -26,7 +27,7 @@ problems:
     seed: 7
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN1-F-03
     tier: floor
@@ -36,7 +37,7 @@ problems:
     seed: 12
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN1-F-04
     tier: floor
@@ -46,7 +47,7 @@ problems:
     seed: 31
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   # ---- Putting It Together Practice ----
   - id: FN1-A-01
@@ -57,7 +58,7 @@ problems:
     seed: 3
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN1-A-02
     tier: assessment
@@ -67,7 +68,7 @@ problems:
     seed: 9
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN1-A-03
     tier: assessment
@@ -77,7 +78,7 @@ problems:
     seed: 6
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   - id: FN1-A-04
     tier: assessment
@@ -87,7 +88,7 @@ problems:
     seed: 2
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   # ---- Spot the Slip ----
   - id: FN1-S-01
@@ -98,7 +99,7 @@ problems:
     seed: 5
     answer: generated
     solution: null
-    status: draft
+    status: audited
 
   # ---- Looking Ahead to Calculus: needs Dr. Romero's approval ----
   - id: FN1-B-01
@@ -107,7 +108,7 @@ problems:
     kind: template
     template: circle_halves_bridge
     seed: 1
-    bridge_note: "Calculus works with functions, so curves like circles are split into function pieces (used later for slopes of tangent lines and for areas)"
+    bridge_note: "Writing the circle as upper and lower functions lets us use single-variable integration to find the area between them"
     answer: generated
     solution: null
-    status: proposed
+    status: audited        # bridge approved by Dr. Romero, Nov 17 2026

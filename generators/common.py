@@ -162,7 +162,7 @@ def plot_mapping(inputs, outputs, arrows, fname, chapter="ch1"):
         ax.add_patch(FancyArrowPatch((-1.55, yin[a]), (1.55, yout[b]), arrowstyle="-|>", mutation_scale=14,
                                      color="#1f4fbf", linewidth=1.6))
     ax.text(-2, ax.get_ylim()[1] - 0.25, "Inputs", fontsize=11, ha="center")
-    ax.text(2, ax.get_ylim()[1] - 0.25, "Outputs", fontsize=11, ha="center")
+    ax.text(2, ax.get_ylim()[1] - 0.25, "Target values", fontsize=11, ha="center")
     return _save(fig, fname, chapter)
 
 

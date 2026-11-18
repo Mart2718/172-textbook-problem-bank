@@ -1,0 +1,52 @@
+{
+  "FN1-A-01": {
+    "seed": 3,
+    "sha256": "3494d1056219579957ff265f3061d3df32c7281861664b675c3e85e69917b5f5",
+    "template": "repeated_outputs"
+  },
+  "FN1-A-02": {
+    "seed": 9,
+    "sha256": "6ea9af065fa7d1fcf5f8510e4f8482adaf4acdb5a55c963977ad44c510134936",
+    "template": "mapping_domain_range"
+  },
+  "FN1-A-03": {
+    "seed": 6,
+    "sha256": "dab0e566c26f9217388d9232aaae9d1e243b9f0cf9a54e9eb5ee920bbe8c4207",
+    "template": "radical_domain"
+  },
+  "FN1-A-04": {
+    "seed": 2,
+    "sha256": "72facb2e5b81c4edbd05f6f51459e4637e4e0c12bf9c803089c0a3a8491347dd",
+    "template": "radical_rational_domain"
+  },
+  "FN1-B-01": {
+    "seed": 1,
+    "sha256": "cc86d193c17f763e89c6d7f06e541966cf95ccbf7040c723807ff6a535824874",
+    "template": "circle_halves_bridge"
+  },
+  "FN1-F-01": {
+    "seed": 4,
+    "sha256": "c4e3672740022b0d07c8137bb2d4d606d151ad932415d4afa71d5612d049159a",
+    "template": "relations_trio"
+  },
+  "FN1-F-02": {
+    "seed": 7,
+    "sha256": "c030c1c38f30ad9765d37f87e08b240ba2e5c39ce98e39137624a15626c40c45",
+    "template": "equations_pair"
+  },
+  "FN1-F-03": {
+    "seed": 12,
+    "sha256": "5bd78e6f3304151e0371fb4f6c612ee6f10850e4f8b77d67889291f18a680ee5",
+    "template": "graphs_trio"
+  },
+  "FN1-F-04": {
+    "seed": 31,
+    "sha256": "df2639c872d7b87724189b685b7ce56d776d1169670a165a4495c48ece93bfda",
+    "template": "graphs_trio"
+  },
+  "FN1-S-01": {
+    "seed": 5,
+    "sha256": "29aa6743f0843c93614e44d036e454294cf138b2edd2c79a47beb6586707a16e",
+    "template": "slip_repeated_output"
+  }
+}

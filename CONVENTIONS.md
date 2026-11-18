@@ -27,6 +27,7 @@ Rows marked **⚑ confirm** are my best reading and need Dr. Romero's OK.
 | Item | Convention | Source |
 |---|---|---|
 | Domain, range, increasing/decreasing | **Interval notation**; unions with \(\cup\) | S1, S2 |
+| Finite domains and ranges (mappings, sets of pairs) | **Set notation**, listed in increasing order: \(\{0, 1, 3, 5\}\) | FN1 audit |
 | Increasing/decreasing intervals | **Open** intervals, even at a filled dot | S2 |
 | Points | \((x, y)\) with parentheses, never brackets | S3 (fix logged in blueprint) |
 | Piecewise conditions | \(-5 < x \le 2\) style; exactly one piece includes the boundary value | S1, S2 |
@@ -40,6 +41,8 @@ Rows marked **⚑ confirm** are my best reading and need Dr. Romero's OK.
 | input / output (with x-value / y-value as a gloss) | argument, image | S2 |
 | closed (filled) dot / open (hollow) dot | solid/empty circle | S2 |
 | local max/min; global max/min | relative/absolute ⚑ confirm | S2 |
+| **intersects** (vertical line test) | "crosses", "hits" (isolated points and endpoints must count) | FN1 audit |
+| **target values** (right oval of a mapping); **range** = values with an incoming arrow | "outputs" for the whole right oval | FN1 audit |
 | **secant line** (through two points) vs **tangent line** (the limit) | "a line" for either | FN2 audit |
 | "undefined: \(x\) is not in the domain" | "DNE", "error" | S2, S3 |
 | "undefined: division by zero" (rational) | "infinity" | S3 |
@@ -47,6 +50,7 @@ Rows marked **⚑ confirm** are my best reading and need Dr. Romero's OK.
 ## Course rules that answers must respect
 
 - An **endpoint is never a local max or min**; a filled endpoint **can** be the global max or min. An open dot is never reached, so it can't be either. (S2)
+- Tables of points: "Selected points" for continuous graphs (a sample can show a failure, but can't prove a pass); "All plotted points" for graphs of isolated points. (FN1 audit)
 - Graph sketches meeting criteria: "Answers will vary," with one example graph. (S1)
 - Angle graphs: sides are rays with arrowheads; segments ending in a dot only on a unit circle with a marked point. (course rule)
 - Spot the Slip has exactly **one** deliberate error. (S2)

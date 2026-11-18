@@ -14,7 +14,7 @@ Explain why each of the following relations does or does not define a function.
 
 ![Mapping for part (a)](figures/problem-01.png)
 
-*Alt text (what a screen-reader student hears):* Mapping diagram with inputs in a left oval and outputs in a right oval. Inputs, top to bottom: 17, 13, 1, 3, 16, 5. Outputs, top to bottom: 13, 18, 10, 2, 8, 9. Arrows: 17 to 13; 13 to 8; 1 to 10; 3 to 18; 16 to 10; 5 to 10.
+*Alt text (what a screen-reader student hears):* Mapping diagram with inputs in a left oval and target values in a right oval. Inputs, top to bottom: 17, 13, 1, 3, 16, 5. Target values, top to bottom: 13, 18, 10, 2, 8, 9. Arrows: 17 to 13; 13 to 8; 1 to 10; 3 to 18; 16 to 10; 5 to 10.
 
 a. The mapping shown above.
 
@@ -55,7 +55,7 @@ Explain why each of the following graphs does or does not represent a function.
 
 *Alt text (what a screen-reader student hears):* Two pieces, each with closed dots at both ends. A line segment runs from (-5, -4) to (1, 2). A horizontal segment at height 3 runs from (2, 3) to (5, 3). The window shows x and y from -6 to 6 with grid lines 1 unit apart.
 
-*Points on Graph A (collapsed toggle on the page):*
+*Selected points on Graph A (collapsed toggle on the page):*
 
 | $x$ | $y$ |
 |---|---|
@@ -77,7 +77,7 @@ Explain why each of the following graphs does or does not represent a function.
 
 *Alt text (what a screen-reader student hears):* Separate points at (-5, 0), (-2, -3), (0, -3), (3, 2), (4, 4). The window shows x and y from -6 to 6 with grid lines 1 unit apart.
 
-*Points on Graph B (collapsed toggle on the page):*
+*All plotted points on Graph B (collapsed toggle on the page):*
 
 | $x$ | $y$ |
 |---|---|
@@ -93,7 +93,7 @@ Explain why each of the following graphs does or does not represent a function.
 
 *Alt text (what a screen-reader student hears):* A parabola opening to the right with vertex (-2, -2); both branches continue past the edge of the window. The window shows x and y from -6 to 6 with grid lines 1 unit apart.
 
-*Points on Graph C (collapsed toggle on the page):*
+*Selected points on Graph C (collapsed toggle on the page):*
 
 | $x$ | $y$ |
 |---|---|
@@ -121,7 +121,7 @@ Explain why each of the following graphs does or does not represent a function.
 
 *Alt text (what a screen-reader student hears):* A straight line through (0, -2) and (1, 0) that continues past the edges of the window. The window shows x and y from -6 to 6 with grid lines 1 unit apart.
 
-*Points on Graph A (collapsed toggle on the page):*
+*Selected points on Graph A (collapsed toggle on the page):*
 
 | $x$ | $y$ |
 |---|---|
@@ -137,7 +137,7 @@ Explain why each of the following graphs does or does not represent a function.
 
 *Alt text (what a screen-reader student hears):* Two pieces, each with closed dots at both ends. A line segment runs from (-5, 3) to (-2, 0). A horizontal segment at height -2 runs from (-1, -2) to (5, -2). The window shows x and y from -6 to 6 with grid lines 1 unit apart.
 
-*Points on Graph B (collapsed toggle on the page):*
+*Selected points on Graph B (collapsed toggle on the page):*
 
 | $x$ | $y$ |
 |---|---|
@@ -159,7 +159,7 @@ Explain why each of the following graphs does or does not represent a function.
 
 *Alt text (what a screen-reader student hears):* Two pieces, each with closed dots at both ends. A line segment runs from (-5, 3) to (-1, -1). A horizontal segment at height -3 runs from (-2, -3) to (5, -3). The window shows x and y from -6 to 6 with grid lines 1 unit apart.
 
-*Points on Graph C (collapsed toggle on the page):*
+*Selected points on Graph C (collapsed toggle on the page):*
 
 | $x$ | $y$ |
 |---|---|
@@ -205,7 +205,7 @@ Use the mapping below.
 
 ![Mapping](figures/problem-06.png)
 
-*Alt text (what a screen-reader student hears):* Mapping diagram with inputs in a left oval and outputs in a right oval. Inputs, top to bottom: 0, 1, 3, 5. Outputs, top to bottom: -2, 0, 6, 9. Arrows: 0 to -2; 1 to -2; 3 to 0; 5 to 9.
+*Alt text (what a screen-reader student hears):* Mapping diagram with inputs in a left oval and target values in a right oval. Inputs, top to bottom: 0, 1, 3, 5. Target values, top to bottom: -2, 0, 6, 9. Arrows: 0 to -2; 1 to -2; 3 to 0; 5 to 9.
 
 a. Does this mapping define a function? Explain.
 

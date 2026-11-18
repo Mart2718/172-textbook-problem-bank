@@ -107,6 +107,8 @@ def math_safe(s):
 def header(bank):
     return (f"<h4><strong>Student Learning Objective</strong></h4>\n\n"
             f"<p><strong>{bank['outcome']}: {bank['objective']}</strong></p>\n\n"
+            + (f"<p><strong>Also practiced in this section:</strong> {bank['also_practiced']}</p>\n\n" if bank.get("also_practiced") else "")
+            + 
             "<p><strong>CheckIt Practice</strong> matches the CheckIt problems for this outcome. "
             "<strong>Putting It Together Practice</strong> uses the same skills in multi-part problems and new formats. "
             "<strong>Spot the Slip</strong> asks you to find and fix an error. <strong>Looking Ahead to Calculus</strong> "

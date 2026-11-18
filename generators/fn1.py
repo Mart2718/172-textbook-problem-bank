@@ -62,9 +62,9 @@ def relations_trio(rng, fname_tag):
     inputs = sorted({a for a, _ in map_pairs}, key=lambda v: rng.random())
     fig = plot_mapping(inputs, map_cod, map_pairs, fname_tag + "-map")
     fig["label"] = "Mapping for part (a)"
-    fig["alt"] = ("Mapping diagram with inputs in a left oval and outputs in a right oval. "
+    fig["alt"] = ("Mapping diagram with inputs in a left oval and target values in a right oval. "
                   f"Inputs, top to bottom: {', '.join(map(str, inputs))}. "
-                  f"Outputs, top to bottom: {', '.join(map(str, map_cod))}. "
+                  f"Target values, top to bottom: {', '.join(map(str, map_cod))}. "
                   "Arrows: " + "; ".join(f"{a} to {b}" for a, b in sorted(map_pairs, key=lambda p: inputs.index(p[0]))) + ".")
     tbl = html_table([r"\(x\)", r"\(y\)"], [(a, b) for a, b in tab_pairs], "Table for part (b)")
     parts = [
@@ -198,18 +198,22 @@ def _graph(rng, kind, fname, label):
     rows = [(num(a), num(b)) for a, b in pts]
     fig["table"] = rows
     fig["table_headers"] = [r"\(x\)", r"\(y\)"]
-    fig["table_caption"] = f"Points on {label}"
-    fig["table_toggle"] = f"Table of points for {label}"
+    if kind.startswith("points"):
+        fig["table_caption"] = f"All plotted points on {label}"
+        fig["table_toggle"] = f"All plotted points on {label}"
+    else:
+        fig["table_caption"] = f"Selected points on {label}"
+        fig["table_toggle"] = f"Selected points on {label}"
     # verify the verdict from the table data itself
     xs_seen = [r[0] for r in rows]
     if kind not in ("line", "parabola_up", "points_fn", "piecewise_fn"):
         assert len(xs_seen) != len(set(xs_seen)) or kind == "parabola_side"
     if is_fn:
-        reason = "every vertical line crosses the graph at most once, so each input has at most one output."
+        reason = "every vertical line intersects the graph at most once, so each input has at most one output."
         ans = f"{label} represents a function: {reason}"
     else:
         t0, y1, y2 = wit
-        ans = (f"{label} does not represent a function: the vertical line {m(f'x = {num(t0)}')} crosses the graph at "
+        ans = (f"{label} does not represent a function: the vertical line {m(f'x = {num(t0)}')} intersects the graph at "
                f"{m(f'({num(t0)}, {num(y1)})')} and {m(f'({num(t0)}, {num(y2)})')}.")
     return fig, ans, is_fn
 
@@ -277,15 +281,15 @@ def mapping_domain_range(rng, fname_tag):
     rng_set = sorted({b for _, b in arrows})
     fig = plot_mapping(inputs, outputs, arrows, fname_tag + "-map")
     fig["label"] = "Mapping"
-    fig["alt"] = ("Mapping diagram with inputs in a left oval and outputs in a right oval. "
-                  f"Inputs, top to bottom: {', '.join(map(str, inputs))}. Outputs, top to bottom: {', '.join(map(str, outputs))}. "
+    fig["alt"] = ("Mapping diagram with inputs in a left oval and target values in a right oval. "
+                  f"Inputs, top to bottom: {', '.join(map(str, inputs))}. Target values, top to bottom: {', '.join(map(str, outputs))}. "
                   "Arrows: " + "; ".join(f"{a} to {b}" for a, b in sorted(arrows)) + ".")
     parts = [
         ("Does this mapping define a function? Explain.",
-         f"Yes. Each input has exactly one arrow. Two inputs sharing the output {m(shared)} is allowed, and an output with no "
-         f"arrow ({m(unused)}) doesn't matter."),
+         f"Yes. Each input has exactly one arrow. Two inputs sharing the output {m(shared)} is allowed, and a target value with "
+         f"no incoming arrow ({m(unused)}) doesn't matter."),
         ("List the domain.", m(r"\{" + ", ".join(map(str, inputs)) + r"\}")),
-        ("List the range.", m(r"\{" + ", ".join(map(str, rng_set)) + r"\}") + f" (the output {m(unused)} is not used, so it is not in the range)"),
+        ("List the range.", m(r"\{" + ", ".join(map(str, rng_set)) + r"\}") + f". The value {m(unused)} has no incoming arrow, so it is not an output and is not in the range."),
     ]
     return {"stem": "Use the mapping below.", "parts": parts, "figures": [fig]}
 
@@ -381,7 +385,7 @@ def circle_halves_bridge(rng):
     ]
     return {"stem": f"The graph of {m(f'x^2 + y^2 = {r**2}')} is a circle of radius {m(r)} centered at the origin.",
             "parts": parts, "figures": [],
-            "bridge_note": "Calculus works with functions, so curves like circles are split into function pieces (used later for slopes of tangent lines and for areas)"}
+            "bridge_note": "Writing the circle as upper and lower functions lets us use single-variable integration to find the area between them"}
 
 
 TEMPLATES = {

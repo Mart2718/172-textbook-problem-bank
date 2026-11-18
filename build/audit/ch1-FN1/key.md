@@ -29,22 +29,22 @@ b) This equation defines $y$ as a function of $x$: solving gives $y = \sqrt[5]{8
 ## Problem 3  
 `FN1-F-03` · CheckIt Practice · item type FN1.b
 
-a) Graph A represents a function: every vertical line crosses the graph at most once, so each input has at most one output.
+a) Graph A represents a function: every vertical line intersects the graph at most once, so each input has at most one output.
 
-b) Graph B represents a function: every vertical line crosses the graph at most once, so each input has at most one output.
+b) Graph B represents a function: every vertical line intersects the graph at most once, so each input has at most one output.
 
-c) Graph C does not represent a function: the vertical line $x = -1$ crosses the graph at $(-1, -3)$ and $(-1, -1)$.
+c) Graph C does not represent a function: the vertical line $x = -1$ intersects the graph at $(-1, -3)$ and $(-1, -1)$.
 
 ---
 
 ## Problem 4  
 `FN1-F-04` · CheckIt Practice · item type FN1.b
 
-a) Graph A represents a function: every vertical line crosses the graph at most once, so each input has at most one output.
+a) Graph A represents a function: every vertical line intersects the graph at most once, so each input has at most one output.
 
-b) Graph B represents a function: every vertical line crosses the graph at most once, so each input has at most one output.
+b) Graph B represents a function: every vertical line intersects the graph at most once, so each input has at most one output.
 
-c) Graph C does not represent a function: the vertical line $x = -2$ crosses the graph at $(-2, -3)$ and $(-2, 0)$.
+c) Graph C does not represent a function: the vertical line $x = -2$ intersects the graph at $(-2, -3)$ and $(-2, 0)$.
 
 ---
 
@@ -62,11 +62,11 @@ c) Remove either $(-2, 6)$ or $(-2, 9)$. Either way, the input $-2$ is left with
 ## Problem 6  
 `FN1-A-02` · Putting It Together Practice · item type FN1.c
 
-a) Yes. Each input has exactly one arrow. Two inputs sharing the output $-2$ is allowed, and an output with no arrow ($6$) doesn't matter.
+a) Yes. Each input has exactly one arrow. Two inputs sharing the output $-2$ is allowed, and a target value with no incoming arrow ($6$) doesn't matter.
 
 b) $\{0, 1, 3, 5\}$
 
-c) $\{-2, 0, 9\}$ (the output $6$ is not used, so it is not in the range)
+c) $\{-2, 0, 9\}$. The value $6$ has no incoming arrow, so it is not an output and is not in the range.
 
 ---
 
@@ -104,7 +104,7 @@ b) It is a function: the inputs $4, -1, 6, 0$ each appear exactly once.
 ## Problem 10  
 `FN1-B-01` · Looking Ahead to Calculus · item type FN1.e
 
-*Calculus idea:* Calculus works with functions, so curves like circles are split into function pieces (used later for slopes of tangent lines and for areas)
+*Calculus idea:* Writing the circle as upper and lower functions lets us use single-variable integration to find the area between them
 
 a) When $x = 4$, $y^2 = 9$, so $y = -3$ or $y = 3$. (Other inputs work too.)
 
